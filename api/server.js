@@ -12,6 +12,10 @@ server.use(express.json());
 
 configureRoutes(server);
 
+server.get('/',(req,res) => {
+	res.send("Running strong...");
+})
+
 module.exports = {
   server,
 };

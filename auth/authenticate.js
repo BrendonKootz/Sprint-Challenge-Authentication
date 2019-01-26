@@ -6,7 +6,7 @@ const jwtKey =
 
 // quickly see what this file exports
 module.exports = {
-  authenticate,
+  authenticate, generateToken
 };
 
 // implementation details
@@ -26,4 +26,17 @@ function authenticate(req, res, next) {
       error: 'No token provided, must be set on the Authorization Header',
     });
   }
+}
+
+function generateToken(user){
+	const payload = {
+		username: user.username,
+	};
+	const secret = jwtKey;
+	console.log("WHats the secret???" + secret);
+	const options ={
+		expiresIn: "1m"
+	};
+	
+	return jwt.sign(payload, secret, options);
 }

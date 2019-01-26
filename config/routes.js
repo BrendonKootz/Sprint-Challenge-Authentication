@@ -10,10 +10,12 @@ module.exports = server => {
 
 function register(req, res) {
   // implement user registration
+	const deets = req.body;
 }
 
 function login(req, res) {
   // implement user login
+  const deets = req.body;
 }
 
 function getJokes(req, res) {
